@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 // 🔴 (1) استيراد بيانات القنوات بالكامل
-import { channelsByCountry, type IPTVChannel, normalizeYouTubeUrl } from '@/lib/iptv-channels'
+import { getAllChannels, type IPTVChannel, normalizeYouTubeUrl } from '@/lib/iptv-channels'
 
 // 🔴 (2) دالة الفلترة الذكية (نضعها هنا في السيرفر)
 function filterChannel(channel: IPTVChannel, category: string | null): boolean {
@@ -36,6 +36,7 @@ export async function GET(req: Request) {
     }
 
     // 5. تجميع كل القنوات من كل الدول
+    const channelsByCountry = await getAllChannels();
     let allChannels: IPTVChannel[] = []
     for (const country in channelsByCountry) {
       channelsByCountry[country].forEach(channel => {
