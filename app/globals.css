@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142.1 76.2% 46.5%;
+    --primary-foreground: 142.1 76.2% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.1 76.2% 46.5%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142.1 76.2% 46.5%;
+    --primary-foreground: 142.1 76.2% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.1 76.2% 46.5%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: 'MusticaPro';
+  src: url('/fonts/MusticaPro-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.custom-scroll {
+  scrollbar-width: none;
+}
+  
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🔴 إضافة لإصلاح حجم ملء الشاشة */
+.video-player-container:fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+.video-player-container:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+/*
+ * يجعل مشغل Video.js (vjs-tech) يملأ الحاوية 
+ * ويستخدم object-fit: cover (مثل المشغل القديم)
+ */
+.video-js .vjs-tech {
+  object-fit: cover;
+}
+
+/* 🔴 (هذا هو التعديل 1) 🔴 */
+/* إجبار المشغل على ملء الحاوية بالكامل H-Full في وضع الهاتف */
+.video-js.vjs-fill {
+  width: 100% !important;
+  height: 100% !important;
+}
+/* إجبار الفيديو الداخلي على التمدد */
+.video-js.vjs-fill .vjs-tech {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* التأكد من أن الفيديو يغطي المساحة */
+}
+/* 🔴 (نهاية التعديل 1) 🔴 */
+
+/* * 👈🔴 تم حذف سطر @import الخاص بثيم 'city' من هنا 🔴
+ */

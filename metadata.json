@@ -1,0 +1,5 @@
+{
+  "description": "An interactive TV streaming application that allows users to explore channels from around the world on a 3D globe.",
+  "requestFramePermissions": [],
+  "name": "TV Garden"
+}
