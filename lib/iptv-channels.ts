@@ -148,7 +148,7 @@ export function normalizeYouTubeUrl(url: string): string {
   }
 }
 
-async function getAllChannels(): Promise<Record<string, IPTVChannel[]>> {
+export async function getAllChannels(): Promise<Record<string, IPTVChannel[]>> {
   const cached = memoryManager.get<Record<string, IPTVChannel[]>>('all-channels');
   if (cached) {
     return cached;
